@@ -11,9 +11,12 @@ npm i
 
 ```
 
+### Building
 
+```
+npm run build
 
-## Deployment
+```
 
 ### Running
 
