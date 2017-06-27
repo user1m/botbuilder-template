@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "eg2.tslint",
+        "dbaeumer.vscode-eslint",
+        "dbaeumer.jshint",
+        "msjsdiag.debugger-for-chrome"
+    ]
+}

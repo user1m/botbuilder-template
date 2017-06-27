@@ -1,0 +1,67 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program - app",
+            "program": "${workspaceRoot}/release/server"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program - file",
+            "program": "${file}",
+            "stopOnEntry": true,
+            "outFiles": []
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Port",
+            "processId": "${command:PickProcess}",
+            "stopOnEntry": false,
+            "port": 5858,
+            "outFiles": []
+        },
+        {
+            "name": "Debug Mocha Test",
+            "type": "node",
+            // "request": "attach", - uncomment to stopOnEntry
+            "address": "localhost",
+            "port": 5858,
+            "sourceMaps": false
+        },
+        {
+            "name": "Debug Mocha Test (console)",
+            "type": "node",
+            // "request": "attach", - uncomment to stopOnEntry
+            "address": "localhost",
+            "args": [
+                "--colors"
+            ],
+            "stopOnEntry": false,
+            "port": 5858,
+            "sourceMaps": false
+        },
+        {
+            "name": "Run mocha",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "stopOnEntry": false,
+            "args": [
+                "./release/test/*.js",
+                "--no-timeouts"
+            ],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+            "env": {
+                "NODE_ENV": "test"
+            }
+        }
+    ]
+}
