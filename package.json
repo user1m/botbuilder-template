@@ -24,7 +24,6 @@
     "lint": "gulp tslint",
     "pack": "rm -f bundle.js && webpack",
     "package": "gulp package-transpiled-javascript",
-    "preinstall": "npm config set package-lock false",
     "show-cov-ut": "gulp show-unittest-coverage-report",
     "start": "node ./bundle",
     "test": "gulp run-unit-tests check-security",
@@ -37,11 +36,13 @@
     "name": "Claudius Mbemba",
     "email": "clmb@microsoft.com"
   },
-  "contributors": [{
-    "url": "",
-    "name": "",
-    "email": ""
-  }],
+  "contributors": [
+    {
+      "url": "",
+      "name": "",
+      "email": ""
+    }
+  ],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
