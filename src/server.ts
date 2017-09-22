@@ -12,6 +12,6 @@ console.log('Configuring web server...');
 server.post('/api/messages', (<ChatConnector>bot.connector).listen());
 
 const port = process.env.port || process.env.PORT || 3978;
-server.listen(port, '::', () => {
+server.listen(port, () => {
     console.log(`Server Up: Listening at port ${port}`);
 });

@@ -2,7 +2,7 @@
   "name": "botbuilder-template",
   "version": "1.0.0",
   "description": "botbuilder-template",
-  "main": "./release/bundle",
+  "main": "./bundle",
   "pre-commit": [
     "test",
     "lint"
@@ -15,36 +15,33 @@
     "ci-test": "mocha-typescript-watch -p tsconfig.json ./release/test/",
     "clean": "gulp clean",
     "console": "nodemon ./release/console",
+    "deploy": "npm cache clean",
     "debug": "mocha --inspect-brk ./release/test/",
     "emulator": "nodemon ./release/server",
     "enforce-code-cov": "gulp enforce-code-coverage",
     "gulp": "gulp",
     "i": "rm -rf package-lock.json && npm i",
     "lint": "gulp tslint",
-    "localize": "cp -r ./src/locale ./release",
-    "pack": "webpack",
+    "pack": "rm -f bundle.js && webpack",
     "package": "gulp package-transpiled-javascript",
     "preinstall": "npm config set package-lock false",
     "show-cov-ut": "gulp show-unittest-coverage-report",
-    "start": "node ./release/bundle",
+    "start": "node ./bundle",
     "test": "gulp run-unit-tests check-security",
     "transpile": "gulp transpile",
     "validate": "npm ls",
-    "watch": "tsc -w -p tsconfig.json",
-    "zip": "rm -rf Archive.zip && zip -r -X Archive.zip *"
+    "watch": "tsc -w -p tsconfig.json"
   },
   "author": {
     "url": "https://www.claudiusmbemba.com",
     "name": "Claudius Mbemba",
     "email": "clmb@microsoft.com"
   },
-  "contributors": [
-    {
-      "url": "",
-      "name": "",
-      "email": ""
-    }
-  ],
+  "contributors": [{
+    "url": "",
+    "name": "",
+    "email": ""
+  }],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
@@ -56,7 +53,7 @@
     "@types/restify": "^2.0.35",
     "@types/sinon": "^1.16.33",
     "botbuilder": "^3.8.4",
-    "botbuilder-forms": "git+https://git@github.com/User1m/botbuilder-forms.git",
+    "botbuilder-forms": "^1.0.2",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "dotenv": "^4.0.0",

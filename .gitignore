@@ -7,7 +7,7 @@
 **/.DS_Store
 
 **/release/
-!**/release/bundle.js
+**/bundle.js
 !**/release/locale
 
 **/*.zip
