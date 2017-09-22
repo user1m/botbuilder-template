@@ -7,12 +7,12 @@ Sample template for building bots using Microsoft Bot Framework
  * When I say 'Login' I want the 'LoginDialog'
 
  
-
 ## Setup
-1. Clone repo
-2. Install packaages
-3. Build project
-4. Start server
+1. [Clone repo](#clone)
+2. [Install packages](#installing)
+3. [Build project](#building)
+4. [Start server](#running)
+5. [Testing](#running-test)
 
 ### Clone
 
@@ -38,7 +38,7 @@ npm run build
 ### Running
 
 ```
-npm run start
+npm start
 
 ```
 
@@ -47,6 +47,15 @@ npm run start
 ```
 npm test
 ```
+
+## Deploy to Azure
+
+Build the project which will compile your typescript `(.ts)` files and webpack the project for your into a `bundle.js`. 
+
+Commit the `bundle.js` file and connect your Azure Web App `Deployment Option` to your repo (local git, github, etc.).
+
+This will pull the `bundle.js` and run right away (No need to `npm i`).
+
 
 ## Built With
 
