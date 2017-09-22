@@ -50,6 +50,9 @@ npm test
 
 ## Deploy to Azure
 
+[See Azure branch for an example](https://github.com/user1m/botbuilder-template/tree/azure)
+
+
 Build the project which will compile your typescript `(.ts)` files and webpack the project for your into a `bundle.js`. 
 
 Commit the `bundle.js` file and connect your Azure Web App `Deployment Option` to your repo (local git, github, etc.).
@@ -71,9 +74,9 @@ This will pull the `bundle.js` and run right away (No need to `npm i`).
 ## Authors
 
 * **Claudius Mbemba** - *Initial work* - [user1m](https://github.com/user1m)
-* **Liliam Kasem** - *Initial work* - [LilianKasem](https://github.com/LilianKasem)
+* **Lilian Kasem** - *Initial work* - [LilianKasem](https://github.com/LilianKasem)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
 
