@@ -6,13 +6,13 @@ Sample template for building bots using Microsoft Bot Framework
 * A Skill is a mapping of Intents to Dialogs
  * When I say 'Login' I want the 'LoginDialog'
 
- 
+
 ## Setup
 1. [Clone repo](#clone)
 2. [Install packages](#installing)
 3. [Build project](#building)
 4. [Start server](#running)
-5. [Testing](#running-test)
+5. [Testing](#running-tests)
 
 ### Clone
 
@@ -53,7 +53,7 @@ npm test
 [See Azure branch for an example](https://github.com/user1m/botbuilder-template/tree/azure)
 
 
-Build the project which will compile your typescript `(.ts)` files and webpack the project for your into a `bundle.js`. 
+Build the project which will compile your typescript `(.ts)` files and webpack the project for your into a `bundle.js`.
 
 Commit the `bundle.js` file and connect your Azure Web App `Deployment Option` to your repo (local git, github, etc.).
 
