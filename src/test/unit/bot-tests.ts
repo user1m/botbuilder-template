@@ -14,14 +14,14 @@ suite('Bot Suite -', () => {
     let sandbox: Sinon.SinonSandbox;
 
     const univseralBot = {
-        dialog: () => { } // tslint:disable-line
+        dialog: () => { return null; } // tslint:disable-line
     };
-    let recognizer: builder.LuisRecognizer; // tslint:disable-line
     const dialog = {
-        onDefault: () => { }, // tslint:disable-line
-        matches: () => { } // tslint:disable-line
+        onDefault: () => { return null; }, // tslint:disable-line
+        matches: () => { return null; } // tslint:disable-line
     };
-    let connector: builder.IConnector; // tslint:disable-line
+    let connector: builder.IConnector = null; // tslint:disable-line
+    let recognizer: builder.LuisRecognizer = null; // tslint:disable-line
 
     let botStub: Sinon.SinonStub;
     let connectorStub: Sinon.SinonStub;
@@ -38,6 +38,7 @@ suite('Bot Suite -', () => {
         rootDialogStub = sandbox.stub(univseralBot, 'dialog');
         dialogOnDefaultStub = sandbox.stub(dialog, 'onDefault');
         dialogMatchStub = sandbox.stub(dialog, 'matches');
+
         botStub.returns(univseralBot);
         recognizerStub.returns(recognizer);
         dialogStub.returns(dialog);
