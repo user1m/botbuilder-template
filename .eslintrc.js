@@ -45,7 +45,7 @@ module.exports = {
             'always'
         ],
         console: [
-            'true'
+            1, 2
         ]
 
     },
