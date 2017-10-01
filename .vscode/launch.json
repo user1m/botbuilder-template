@@ -27,24 +27,19 @@
             "outFiles": []
         },
         {
-            "name": "Debug Mocha Test",
             "type": "node",
-            // "request": "attach", - uncomment to stopOnEntry
-            "address": "localhost",
-            "port": 5858,
-            "sourceMaps": false
-        },
-        {
-            "name": "Debug Mocha Test (console)",
-            "type": "node",
-            // "request": "attach", - uncomment to stopOnEntry
-            "address": "localhost",
+            "request": "launch",
+            "name": "Mocha Tests",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
             "args": [
-                "--colors"
+                "-u",
+                "tdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "${workspaceRoot}/release/test/**/*.js"
             ],
-            "stopOnEntry": false,
-            "port": 5858,
-            "sourceMaps": false
+            "internalConsoleOptions": "openOnSessionStart"
         },
         {
             "name": "Run mocha",
@@ -53,6 +48,8 @@
             "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
             "stopOnEntry": false,
             "args": [
+                "--ui",
+                "tdd",
                 "./release/test/**/*.js",
                 "--no-timeouts"
             ],

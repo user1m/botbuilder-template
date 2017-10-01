@@ -36,13 +36,11 @@
     "name": "Claudius Mbemba",
     "email": "clmb@microsoft.com"
   },
-  "contributors": [
-    {
-      "url": "",
-      "name": "",
-      "email": ""
-    }
-  ],
+  "contributors": [{
+    "url": "",
+    "name": "",
+    "email": ""
+  }],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
