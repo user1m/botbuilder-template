@@ -18,7 +18,8 @@ suite('Bot Suite -', () => {
     };
     const dialog = {
         onDefault: () => { return null; }, // tslint:disable-line
-        matches: () => { return null; } // tslint:disable-line
+        matches: () => { return null; }, // tslint:disable-line
+        triggerAction: () => { },// tslint:disable-line
     };
     let connector: builder.IConnector = null; // tslint:disable-line
     let recognizer: builder.LuisRecognizer = null; // tslint:disable-line
@@ -35,7 +36,7 @@ suite('Bot Suite -', () => {
         botStub = sandbox.stub(builder, 'UniversalBot');
         recognizerStub = sandbox.stub(builder, 'LuisRecognizer');
         dialogStub = sandbox.stub(builder, 'IntentDialog');
-        rootDialogStub = sandbox.stub(univseralBot, 'dialog');
+        rootDialogStub = sandbox.stub(univseralBot, 'dialog').returns(dialog);
         dialogOnDefaultStub = sandbox.stub(dialog, 'onDefault');
         dialogMatchStub = sandbox.stub(dialog, 'matches');
 

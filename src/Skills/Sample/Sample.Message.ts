@@ -11,20 +11,12 @@ export class SampleMessage {
         return `Hello ${name}!`;
     }
 
-    public static announceNameIsValid = (name: string) => {
-        return `${name}, thats a valid name!`;
-    }
-
-    public static announceNameIsInvalid = () => {
-        return `Thats NOT a valid name!`;
-    }
-
     public static askFood = () => {
         return 'What is your favorite food?';
     }
 
-    public static respondFood = (food: string) => {
-        return `Your favorite food is ${food}`;
+    public static respondFood = (name: string, food: string) => {
+        return `${name}'s favorite food is ${food}`;
     }
 }
 

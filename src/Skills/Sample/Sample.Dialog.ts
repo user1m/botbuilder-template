@@ -6,9 +6,32 @@ import { SampleMessage } from './Sample.Message';
 
 export class SampleDialog {
 
-    static register = function(bot: builder.UniversalBot, intents: builder.IntentDialog) {
+    static register = function (bot: builder.UniversalBot, intents?: builder.IntentDialog) {
+        bot.dialog(SampleSkill.Dialogs.Start, [
+            (session, args, next) => {
+                if (session.privateConversationData.name) {
+                    session.replaceDialog(SampleSkill.Dialogs.Sample, { entities: "food" });
+                } else {
+                    if (!session.privateConversationData.name) {
+                        builder.Prompts.text(session, SampleMessage.promptForName(session));
+                    } else {
+                        next();
+                    }
+                }
+            },
+            (session, result) => {
+                const name = result.response;
+                session.privateConversationData.name = name;
+                //{ entities: "food" } - mocking response by LuisRecognizer
+                session.replaceDialog(SampleSkill.Dialogs.Sample, { entities: "food" });
+            }
+        ]).triggerAction({
+            matches: /start/i
+        });
+
         bot.dialog(SampleSkill.Dialogs.Sample, [
             (session, args, next) => {
+                session.send(SampleMessage.welcomeByName(session.privateConversationData.name));
                 session.userData.food = builder.EntityRecognizer.findEntity(args.entities, 'food');
                 if (!session.userData.food) {
                     builder.Prompts.text(session, SampleMessage.askFood());
@@ -21,13 +44,7 @@ export class SampleDialog {
                 if (results.response) {
                     session.userData.food = results.response;
                 }
-                session.endDialog(SampleMessage.respondFood(results.response), session.userData.food);
-            }
-        ]);
-
-        bot.dialog(SampleSkill.Dialogs.Start, [
-            (session) => {
-                session.endDialog("Hello " + session.message.user.name + "!");
+                session.endDialog(SampleMessage.respondFood(session.privateConversationData.name, results.response), session.userData.food);
             }
         ]);
     };

@@ -3,20 +3,12 @@ import builder = require('botbuilder');
 
 export class TalkabotMessage {
 
-    public static promptForName = (session: any) => {
-        return 'What is your name?';
-    }
-
-    public static welcomeByName = (name: string) => {
-        return `Hello ${name}!`;
-    }
-
     public static announceNameIsValid = (name: string) => {
         return `${name}, thats a valid name!`;
     }
 
     public static announceNameIsInvalid = () => {
-        return `Thats NOT a valid name!`;
+        return `Thats NOT a valid name! Try again.`;
     }
 
     public static announceSessionIdenity = (session: any) => {

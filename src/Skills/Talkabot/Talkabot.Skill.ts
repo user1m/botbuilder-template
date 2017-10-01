@@ -7,12 +7,12 @@ import { TalkabotService } from './Talkabot.Service';
 
 export class TalkabotSkill {
 
-    static dialogs = {
+    static Dialogs = {
         Login: '/Login',
         Authenticate: '/Authenticate'
     };
 
-    static intents = {
+    static Intents = {
         Login: /^Login/i,
     };
 
@@ -20,7 +20,7 @@ export class TalkabotSkill {
         // A Skill is a mapping of Intents to Dialogs
         // When I say 'Login' I want the 'LoginDialog'
         TalkabotIntent.register(bot, intents);
-        TalkabotDialog.register(bot, intents);
+        TalkabotDialog.register(bot);
     };
 
 }

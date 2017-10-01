@@ -1,5 +1,6 @@
 import builder = require("botbuilder");
 
+import { RootSkill } from "./Skills/Root/Root.Skill";
 import { TalkabotSkill } from "./Skills/Talkabot/Talkabot.Skill";
 import { SampleSkill } from "./Skills/Sample/Sample.Skill";
 
@@ -15,9 +16,7 @@ export class Bot {
   private recognizer: builder.LuisRecognizer;
   private dialogs: builder.IntentDialog;
 
-  constructor(
-    public connector: builder.ConsoleConnector | builder.ChatConnector
-  ) {
+  constructor(public connector: builder.IConnector) {
     this.bot = new builder.UniversalBot(connector);
     this.setUp();
 
@@ -30,8 +29,8 @@ export class Bot {
     console.log("Registering dialogs...");
     this.registerDialogs();
 
-    console.log("Binding dialogs to intents...");
-    this.bindDialogsToIntents();
+    // console.log("Binding dialogs to intents...");
+    // this.bindDialogsToIntents();
 
     if (this.bot instanceof builder.ChatConnector) {
       this.init();
@@ -69,12 +68,13 @@ export class Bot {
   }
 
   private registerDialogs() {
-    this.bot.dialog("/", this.dialogs);
+    RootSkill.register(this.bot, this.dialogs);
     SampleSkill.register(this.bot, this.dialogs); // Add a line like this for every dialog
     TalkabotSkill.register(this.bot, this.dialogs); // Add a line like this for every dialog
   }
 
-  private bindDialogsToIntents() {
-    this.dialogs.matches("favoriteFood", SampleSkill.Dialogs.Sample); // Add a line like this for every intent
-  }
+  // private bindDialogsToIntents() {
+  //   this.dialogs.matches(/hi|hello|hey/i, SampleSkill.Dialogs.Start); // Add a line like this for every intent
+  //   this.dialogs.matches(/start/i, SampleSkill.Dialogs.Start); //Add a line like this for every intent
+  // }
 }
