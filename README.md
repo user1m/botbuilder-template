@@ -4,7 +4,7 @@ Sample template for building bots using Microsoft Bot Framework
 
 ## Concepts
 * A Skill is a mapping of Intents to Dialogs
- 
+
  > When I say 'Login' I want the 'LoginDialog'
 
 
@@ -23,28 +23,24 @@ Sample template for building bots using Microsoft Bot Framework
 
 ```
 git clone git@github.com:User1m/botbuilder-template.git
-
 ```
 
 ### Installing
 
 ```
 npm i
-
 ```
 
 ### Building
 
 ```
 npm run build
-
 ```
 
 ### Running
 
 ```
 npm start | npm run emulator
-
 ```
 
 ## Using Template
