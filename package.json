@@ -8,7 +8,7 @@
     "lint"
   ],
   "scripts": {
-    "build": "gulp clean transpile && npm run pack",
+    "build": "rm -rf ./release && gulp transpile && npm run pack",
     "build-full": "rm -rf ./release && mkdir ./release && gulp clean transpile && npm run localize && npm run pack",
     "build-start": "npm run build && npm run start",
     "check-security": "gulp check-security",
@@ -20,7 +20,6 @@
     "emulator": "nodemon ./release/server",
     "enforce-code-cov": "gulp enforce-code-coverage",
     "gulp": "gulp",
-    "i": "rm -rf package-lock.json && npm i",
     "lint": "gulp tslint",
     "pack": "rm -f bundle.js && webpack",
     "package": "gulp package-transpiled-javascript",

@@ -1,7 +1,7 @@
 import builder = require("botbuilder");
 
 import { RootSkill } from "./Skills/Root/Root.Skill";
-import { TalkabotSkill } from "./Skills/Talkabot/Talkabot.Skill";
+import { LoginSkill } from "./Skills/Login/Login.Skill";
 import { SampleSkill } from "./Skills/Sample/Sample.Skill";
 
 import config = require("./config");
@@ -70,7 +70,7 @@ export class Bot {
   private registerDialogs() {
     RootSkill.register(this.bot, this.dialogs);
     SampleSkill.register(this.bot, this.dialogs); // Add a line like this for every dialog
-    TalkabotSkill.register(this.bot, this.dialogs); // Add a line like this for every dialog
+    LoginSkill.register(this.bot, this.dialogs); // Add a line like this for every dialog
   }
 
   // private bindDialogsToIntents() {

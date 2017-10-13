@@ -1,7 +1,7 @@
 
 import builder = require('botbuilder');
 
-export class TalkabotMessage {
+export class LoginMessage {
 
     public static announceNameIsValid = (name: string) => {
         return `${name}, thats a valid name!`;

@@ -1,18 +1,18 @@
 
 import builder = require('botbuilder');
-import { TalkabotSkill } from './Talkabot.Skill';
-import { TalkabotMessage } from './Talkabot.Message';
+import { LoginSkill } from './Login.Skill';
+import { LoginMessage } from './Login.Message';
 
-export class TalkabotIntent {
+export class LoginIntent {
 
     static register = function (bot: builder.UniversalBot, intents: builder.IntentDialog) {
         // When I say 'Login' I want the 'LoginDialog'
-        intents.matches(TalkabotSkill.Intents.Login, [
+        intents.matches(LoginSkill.Intents.Login, [
             function (session: builder.Session) {
-                session.beginDialog(TalkabotSkill.Dialogs.Login);
+                session.beginDialog(LoginSkill.Dialogs.Login);
             },
             function (session: builder.Session, results: any) {
-                session.send(TalkabotMessage.announceSessionIdenityChanged(session));
+                session.send(LoginMessage.announceSessionIdenityChanged(session));
             }
         ]);
     };

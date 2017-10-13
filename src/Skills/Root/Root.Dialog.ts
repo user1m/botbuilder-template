@@ -3,7 +3,7 @@ import builder = require('botbuilder');
 import { Bot } from "../../bot";
 
 import { RootSkill } from "../Root/Root.Skill";
-import { TalkabotSkill } from "../Talkabot/Talkabot.Skill";
+import { LoginSkill } from "../Login/Login.Skill";
 import { SampleSkill } from "../Sample/Sample.Skill";
 
 import { RootMessage } from './Root.Message';
@@ -18,8 +18,8 @@ export class RootDialog {
             (session, result) => {
                 if (SampleSkill.Dialogs.Start.toLowerCase().includes(result.response)) {
                     session.replaceDialog(SampleSkill.Dialogs.Start);
-                } else if (TalkabotSkill.Dialogs.Login.toLowerCase().includes(result.response)) {
-                    session.replaceDialog(TalkabotSkill.Dialogs.Login);
+                } else if (LoginSkill.Dialogs.Login.toLowerCase().includes(result.response)) {
+                    session.replaceDialog(LoginSkill.Dialogs.Login);
                 }
             }
         ]).triggerAction({

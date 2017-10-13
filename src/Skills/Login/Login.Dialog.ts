@@ -1,20 +1,20 @@
 
 import builder = require('botbuilder');
 
-import { TalkabotService } from './Talkabot.Service';
-import { TalkabotSkill } from './Talkabot.Skill';
-import { TalkabotMessage } from './Talkabot.Message';
+import { LoginService } from './Login.Service';
+import { LoginSkill } from './Login.Skill';
+import { LoginMessage } from './Login.Message';
 import { SampleMessage } from '../Sample/Sample.Message';
 
-export class TalkabotDialog {
+export class LoginDialog {
 
     static register = function (bot: builder.UniversalBot, intents?: builder.IntentDialog) {
-        bot.dialog(TalkabotSkill.Dialogs.Login, [
+        bot.dialog(LoginSkill.Dialogs.Login, [
             function (session: builder.Session) {
                 // call custom prompt
-                session.beginDialog(TalkabotSkill.Dialogs.Authenticate, {
+                session.beginDialog(LoginSkill.Dialogs.Authenticate, {
                     prompt: SampleMessage.promptForName(session),
-                    retryPrompt: TalkabotMessage.announceNameIsInvalid()
+                    retryPrompt: LoginMessage.announceNameIsInvalid()
                 });
             },
             function (session: builder.Session, results: any) {
@@ -22,10 +22,10 @@ export class TalkabotDialog {
                 if (results.response) {
                     // console.log('got valid name: ', results.response)
                     const name = results.response;
-                    TalkabotService.saveName(session, name);
+                    LoginService.saveName(session, name);
                     session.send(SampleMessage.welcomeByName(name));
                 } else {
-                    // session.send(TalkabotMessage.announceNameIsInvalid());
+                    // session.send(LoginMessage.announceNameIsInvalid());
                 }
                 session.endDialog();
             }
@@ -33,7 +33,7 @@ export class TalkabotDialog {
             matches: /login/i
         });
 
-        bot.dialog(TalkabotSkill.Dialogs.Authenticate,
+        bot.dialog(LoginSkill.Dialogs.Authenticate,
             builder.DialogAction.validatedPrompt(
                 builder.PromptType.text, (name: string): boolean => {
                     //auths any name
