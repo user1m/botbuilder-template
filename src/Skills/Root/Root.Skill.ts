@@ -9,7 +9,7 @@ export class RootSkill {
         Root: '/'
     };
 
-    static register = (bot: builder.UniversalBot, intents: builder.IntentDialog) => {
-        RootDialog.register(bot, intents);
+    static register = (bot: builder.UniversalBot) => {
+        RootDialog.register(bot);
     }
 }

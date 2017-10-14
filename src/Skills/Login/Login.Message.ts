@@ -21,15 +21,8 @@ export class LoginMessage {
     }
 
 
-    public static announceSessionIdenityChanged = (session: any) => {
-
-        let name = 'unknown (tracked)';
-
-        if (session.privateConversationData.name) {
-            name = session.privateConversationData.name;
-        }
-
-        return `Ok... You are now logged in as ${name}`;
+    public static respondAlreadyLoggedIn = (name: string) => {
+        return `Already logged in as ${name}`;
     }
 
 }

@@ -14,7 +14,6 @@ export class Bot {
      */
   private bot: builder.UniversalBot;
   private recognizer: builder.LuisRecognizer;
-  private dialogs: builder.IntentDialog;
 
   constructor(public connector: builder.IConnector) {
     this.bot = new builder.UniversalBot(connector);
@@ -29,12 +28,9 @@ export class Bot {
     console.log("Registering dialogs...");
     this.registerDialogs();
 
-    // console.log("Binding dialogs to intents...");
-    // this.bindDialogsToIntents();
-
-    if (this.bot instanceof builder.ChatConnector) {
-      this.init();
-    }
+    // if (this.bot instanceof builder.ChatConnector) {
+    this.init();
+    // }
   }
 
   private setUp() {
@@ -42,7 +38,7 @@ export class Bot {
       .replace("##APP##", config.luis.app)
       .replace("##KEY##", config.luis.key);
     this.recognizer = new builder.LuisRecognizer(url);
-    this.dialogs = new builder.IntentDialog({ recognizers: [this.recognizer] });
+    this.bot.recognizer(this.recognizer);
   }
 
   private init() {
@@ -53,7 +49,7 @@ export class Bot {
       if (message.membersAdded) {
         message.membersAdded.forEach(identity => {
           if (identity.id === message.address.bot.id) {
-            this.bot.beginDialog(message.address, SampleSkill.Dialogs.Start);
+            this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
           }
         });
       }
@@ -62,19 +58,14 @@ export class Bot {
     //Initiate welcome dialog if added
     this.bot.on("contactRelationUpdate", message => {
       if (message.action === "add") {
-        this.bot.beginDialog(message.address, SampleSkill.Dialogs.Start);
+        this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
       }
     });
   }
 
   private registerDialogs() {
-    RootSkill.register(this.bot, this.dialogs);
-    SampleSkill.register(this.bot, this.dialogs); // Add a line like this for every dialog
-    LoginSkill.register(this.bot, this.dialogs); // Add a line like this for every dialog
+    RootSkill.register(this.bot);
+    SampleSkill.register(this.bot); // Add a line like this for every dialog
+    LoginSkill.register(this.bot); // Add a line like this for every dialog
   }
-
-  // private bindDialogsToIntents() {
-  //   this.dialogs.matches(/hi|hello|hey/i, SampleSkill.Dialogs.Start); // Add a line like this for every intent
-  //   this.dialogs.matches(/start/i, SampleSkill.Dialogs.Start); //Add a line like this for every intent
-  // }
 }

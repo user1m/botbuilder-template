@@ -8,14 +8,19 @@ import { SampleMessage } from '../Sample/Sample.Message';
 
 export class LoginDialog {
 
-    static register = function (bot: builder.UniversalBot, intents?: builder.IntentDialog) {
+    static register = function (bot: builder.UniversalBot) {
         bot.dialog(LoginSkill.Dialogs.Login, [
             function (session: builder.Session) {
-                // call custom prompt
-                session.beginDialog(LoginSkill.Dialogs.Authenticate, {
-                    prompt: SampleMessage.promptForName(session),
-                    retryPrompt: LoginMessage.announceNameIsInvalid()
-                });
+
+                if (!session.privateConversationData.name) {
+                    // call custom prompt
+                    session.beginDialog(LoginSkill.Dialogs.Authenticate, {
+                        prompt: SampleMessage.promptForName(session),
+                        retryPrompt: LoginMessage.announceNameIsInvalid()
+                    });
+                } else {
+                    session.endDialog(LoginMessage.respondAlreadyLoggedIn(session.privateConversationData.name));
+                }
             },
             function (session: builder.Session, results: any) {
                 // Check their name
@@ -30,7 +35,7 @@ export class LoginDialog {
                 session.endDialog();
             }
         ]).triggerAction({
-            matches: /login/i
+            matches: /(L|l)ogin/i
         });
 
         bot.dialog(LoginSkill.Dialogs.Authenticate,

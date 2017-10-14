@@ -10,7 +10,7 @@ import { RootMessage } from './Root.Message';
 
 
 export class RootDialog {
-    static register = (bot: builder.UniversalBot, intents: builder.IntentDialog) => {
+    static register = (bot: builder.UniversalBot) => {
         bot.dialog(RootSkill.Dialogs.Root, [
             (session, args, next) => {
                 builder.Prompts.text(session, RootMessage.respondInfo());
@@ -23,7 +23,7 @@ export class RootDialog {
                 }
             }
         ]).triggerAction({
-            matches: [/^help/i]
+            matches: [/^help/i, /^info/i]
         });
     }
 }

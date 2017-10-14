@@ -14,7 +14,9 @@ suite('Bot Suite -', () => {
     let sandbox: Sinon.SinonSandbox;
 
     const univseralBot = {
-        dialog: () => { return null; } // tslint:disable-line
+        dialog: () => { return null; }, // tslint:disable-line
+        recognizer: () => { return null; }, // tslint:disable-line
+        on: () => { } // tslint:disable-line
     };
     const dialog = {
         onDefault: () => { return null; }, // tslint:disable-line
@@ -68,9 +70,7 @@ suite('Bot Suite -', () => {
             assert.isTrue(botStub.called);
             assert.isTrue(connectorStub.called);
             assert.isTrue(recognizerStub.called);
-            assert.isTrue(dialogStub.called);
             assert.isTrue(rootDialogStub.called);
-            assert.isTrue(dialogMatchStub.called);
             done();
         });
 
@@ -95,9 +95,7 @@ suite('Bot Suite -', () => {
             assert.isTrue(botStub.called);
             assert.isTrue(connectorStub.called);
             assert.isTrue(recognizerStub.called);
-            assert.isTrue(dialogStub.called);
             assert.isTrue(rootDialogStub.called);
-            assert.isTrue(dialogMatchStub.called);
             done();
         });
 

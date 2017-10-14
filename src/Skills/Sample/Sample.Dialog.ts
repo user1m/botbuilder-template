@@ -6,7 +6,7 @@ import { SampleMessage } from './Sample.Message';
 
 export class SampleDialog {
 
-    static register = function (bot: builder.UniversalBot, intents?: builder.IntentDialog) {
+    static register = function (bot: builder.UniversalBot) {
         bot.dialog(SampleSkill.Dialogs.Start, [
             (session, args, next) => {
                 if (session.privateConversationData.name) {
@@ -26,7 +26,7 @@ export class SampleDialog {
                 session.replaceDialog(SampleSkill.Dialogs.Sample, { entities: "food" });
             }
         ]).triggerAction({
-            matches: /start/i
+            matches: [/start/i, /(f|F)ood/i]
         });
 
         bot.dialog(SampleSkill.Dialogs.Sample, [

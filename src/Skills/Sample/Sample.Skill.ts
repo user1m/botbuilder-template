@@ -1,7 +1,6 @@
 
 import builder = require('botbuilder');
 
-import { SampleIntent } from './Sample.Intent';
 import { SampleDialog } from './Sample.Dialog';
 
 export class SampleSkill {
@@ -12,14 +11,9 @@ export class SampleSkill {
         End: '/end'
     };
 
-    static Intents = {
-        Food: /^Food/i
-    };
-
-    static register = function (bot: builder.UniversalBot, intents: builder.IntentDialog) {
+    static register = function (bot: builder.UniversalBot) {
         // A Skill is a mapping of Intents to Dialogs
         // When I say 'Login' I want the 'LoginDialog'
-        SampleIntent.register(bot, intents);
         SampleDialog.register(bot);
     };
 
