@@ -1,5 +1,6 @@
 
 import builder = require('botbuilder');
+import { BotWrapper } from "../../bot";
 
 import { LoginService } from './Login.Service';
 import { LoginSkill } from './Login.Skill';
@@ -8,10 +9,9 @@ import { SampleMessage } from '../Sample/Sample.Message';
 
 export class LoginDialog {
 
-    static register = function (bot: builder.UniversalBot) {
-        bot.dialog(LoginSkill.Dialogs.Login, [
+    static register = function (wrapper: BotWrapper) {
+        wrapper.bot.dialog(LoginSkill.Dialogs.Login, [
             function (session: builder.Session) {
-
                 if (!session.privateConversationData.name) {
                     // call custom prompt
                     session.beginDialog(LoginSkill.Dialogs.Authenticate, {
@@ -38,7 +38,7 @@ export class LoginDialog {
             matches: /(L|l)ogin/i
         });
 
-        bot.dialog(LoginSkill.Dialogs.Authenticate,
+        wrapper.bot.dialog(LoginSkill.Dialogs.Authenticate,
             builder.DialogAction.validatedPrompt(
                 builder.PromptType.text, (name: string): boolean => {
                     //auths any name

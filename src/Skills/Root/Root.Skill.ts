@@ -1,6 +1,6 @@
 import builder = require('botbuilder');
 
-import { Bot } from "../../bot";
+import { BotWrapper } from "../../bot";
 import { RootDialog } from './Root.Dialog';
 
 export class RootSkill {
@@ -9,7 +9,7 @@ export class RootSkill {
         Root: '/'
     };
 
-    static register = (bot: builder.UniversalBot) => {
-        RootDialog.register(bot);
+    static register = (wrapper: BotWrapper) => {
+        RootDialog.register(wrapper);
     }
 }

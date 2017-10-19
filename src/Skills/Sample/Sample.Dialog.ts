@@ -1,13 +1,14 @@
 
 import builder = require('botbuilder');
+import { BotWrapper } from "../../bot";
 
 import { SampleSkill } from './Sample.Skill';
 import { SampleMessage } from './Sample.Message';
 
 export class SampleDialog {
 
-    static register = function (bot: builder.UniversalBot) {
-        bot.dialog(SampleSkill.Dialogs.Start, [
+    static register = function (wrapper: BotWrapper) {
+        wrapper.bot.dialog(SampleSkill.Dialogs.Start, [
             (session, args, next) => {
                 if (session.privateConversationData.name) {
                     session.replaceDialog(SampleSkill.Dialogs.Sample, { entities: "food" });
@@ -29,7 +30,7 @@ export class SampleDialog {
             matches: [/start/i, /(f|F)ood/i]
         });
 
-        bot.dialog(SampleSkill.Dialogs.Sample, [
+        wrapper.bot.dialog(SampleSkill.Dialogs.Sample, [
             (session, args, next) => {
                 session.send(SampleMessage.welcomeByName(session.privateConversationData.name));
                 session.userData.food = builder.EntityRecognizer.findEntity(args.entities, 'food');

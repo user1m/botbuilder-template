@@ -5,12 +5,12 @@ import Sinon = require('sinon');
 
 import builder = require('botbuilder');
 
-import { Bot } from '../../bot';
+import { BotWrapper } from '../../bot';
 
 const assert = Chai.assert;
 
 suite('Bot Suite -', () => {
-    let sut: Bot;
+    let sut: BotWrapper;
     let sandbox: Sinon.SinonSandbox;
 
     const univseralBot = {
@@ -60,7 +60,7 @@ suite('Bot Suite -', () => {
         setup(() => {
             connectorStub = sandbox.stub(builder, 'ConsoleConnector');
             connectorStub.returns(connector);
-            sut = new Bot(new builder.ConsoleConnector());
+            sut = new BotWrapper(new builder.ConsoleConnector());
         });
         teardown(() => {
             sut = null;
@@ -85,7 +85,7 @@ suite('Bot Suite -', () => {
         setup(() => {
             connectorStub = sandbox.stub(builder, 'ChatConnector');
             connectorStub.returns(connector);
-            sut = new Bot(new builder.ChatConnector());
+            sut = new BotWrapper(new builder.ChatConnector());
         });
         teardown(() => {
             sut = null;

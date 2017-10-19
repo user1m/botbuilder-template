@@ -6,13 +6,13 @@ import { SampleSkill } from "./Skills/Sample/Sample.Skill";
 
 import config = require("./config");
 
-export class Bot {
+export class BotWrapper {
   /**
      * Connector to use
      * @type {(builder.ConsoleConnector | builder.ChatConnector)}
      * @memberOf Bot
      */
-  private bot: builder.UniversalBot;
+  public bot: builder.UniversalBot;
   private recognizer: builder.LuisRecognizer;
 
   constructor(public connector: builder.IConnector) {
@@ -49,7 +49,7 @@ export class Bot {
       if (message.membersAdded) {
         message.membersAdded.forEach(identity => {
           if (identity.id === message.address.bot.id) {
-            this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
+            // this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
           }
         });
       }
@@ -58,14 +58,14 @@ export class Bot {
     //Initiate welcome dialog if added
     this.bot.on("contactRelationUpdate", message => {
       if (message.action === "add") {
-        this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
+        // this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
       }
     });
   }
 
   private registerDialogs() {
-    RootSkill.register(this.bot);
-    SampleSkill.register(this.bot); // Add a line like this for every dialog
-    LoginSkill.register(this.bot); // Add a line like this for every dialog
+    RootSkill.register(this);
+    SampleSkill.register(this); // Add a line like this for every dialog
+    LoginSkill.register(this); // Add a line like this for every dialog
   }
 }

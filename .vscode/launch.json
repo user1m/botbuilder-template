@@ -58,6 +58,23 @@
             "env": {
                 "NODE_ENV": "test"
             }
+        },
+        {
+            "name": "Run Jasmine",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/.bin/jasmine",
+            "stopOnEntry": false,
+            "args": [
+                "--config=${workspaceRoot}/jasmine.json",
+                "${workspaceRoot}/release/specs/**/*.js"
+            ],
+            "cwd": "${workspaceRoot}",
+            "sourceMaps": true,
+            "runtimeExecutable": null,
+            "env": {
+                "NODE_ENV": "test"
+            }
         }
     ]
 }

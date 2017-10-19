@@ -1,6 +1,6 @@
 import builder = require('botbuilder');
 
-import { Bot } from "../../bot";
+import { BotWrapper } from "../../bot";
 
 import { RootSkill } from "../Root/Root.Skill";
 import { LoginSkill } from "../Login/Login.Skill";
@@ -10,8 +10,8 @@ import { RootMessage } from './Root.Message';
 
 
 export class RootDialog {
-    static register = (bot: builder.UniversalBot) => {
-        bot.dialog(RootSkill.Dialogs.Root, [
+    static register = (wrapper: BotWrapper) => {
+        wrapper.bot.dialog(RootSkill.Dialogs.Root, [
             (session, args, next) => {
                 builder.Prompts.text(session, RootMessage.respondInfo());
             },
