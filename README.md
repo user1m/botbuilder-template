@@ -64,7 +64,7 @@ npm start | npm run emulator
 ### Workflow
 
 Start by checking out `scripts` in `package.json`.
-Then look at `bot.ts` for an understanding of how the bot is contructed, noting that `dialogs` are separated into mini modules and are "registered". Create new dialogs under `src/Skills` and follow the same Skills conventions.
+Then look at `bot.ts` for an understanding of how the bot is constructed, noting that `dialogs` are separated into mini modules and are "registered". Create new dialogs under `src/Skills` and follow the same Skills conventions.
 
 
 ## Testing
@@ -162,8 +162,8 @@ This will pull the `bundle.js` and run right away (No need to `npm i`).
 
 ## Authors
 
-* **Claudius Mbemba** - *Initial work* - [user1m](https://github.com/user1m)
-* **Lilian Kasem** - *Initial work* - [LilianKasem](https://github.com/LilianKasem)
+* **Claudius Mbemba** - *Maintainer* - [user1m](https://github.com/user1m)
+* **Lilian Kasem** - [LilianKasem](https://github.com/LilianKasem)
 
 ## License
 
