@@ -69,13 +69,58 @@ Then look at `bot.ts` for an understanding of how the bot is contructed, noting 
 
 ## Testing
 
-### Running tests
+### 1. Running tests
 
 ```
 npm test
 ```
 
-### Writing tests
+### 2. Writing tests
+
+#### New
+
+```
+npm run jasmine
+```
+
+Using [botbuilder-unit](https://github.com/gudwin/botbuilder-unit) you can write unit test as bot / user scripts like:
+
+**hiScript.ts**
+
+```js
+export = [
+  {
+    "user" : "hi"
+  },
+  {
+    "bot" :"How should I call you?"
+  },
+  {
+    "user" : "Timmy"
+  },
+  {
+    "bot" : "Nice to meet you, \"Timmy\"!"
+  }
+];
+```
+
+and update the `src/specs/botSpec.ts` to use your conversation scripts:
+
+**botSpec.ts**
+
+```js
+it('Test sample flow', (done) => {
+        const messages = require('./hiScript');
+        unit(bot, messages).then(function () {
+            done();
+        }).catch((error) => {
+            console.log(error);
+        });
+    });
+```
+
+
+#### Old
 
 Writing tests requires a good understanding on the testing concept of "mocking". Because the MS Bot Framework employs a lot of complex under-the-hood magic - which is coupled to your code, the best way to do unit testing is just to mock the Bot Framework classes and test for the invocation of methods you write.
 
