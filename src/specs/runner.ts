@@ -7,12 +7,11 @@ process.on('unhandledRejection', (reason, p) => {
 
 import Jasmine = require('jasmine');
 const jasmine = new Jasmine();
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 999999;
-jasmine.loadConfigFile('../../../jasmine.json');
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 1;
+jasmine.loadConfigFile('./jasmine.json');
 jasmine.configureDefaultReporter({
     showColors: true
 });
-
 
 import * as Reporter from 'jasmine-terminal-reporter';
 const reporter = new Reporter({

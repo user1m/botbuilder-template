@@ -40,7 +40,7 @@ npm run build
 ### Running
 
 ```
-npm start | npm run emulator
+npm start | npm run server
 ```
 
 ## Using Template
@@ -51,11 +51,11 @@ npm start | npm run emulator
 
 * `src/console.ts` - Starting your bot with a [Console Connector](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.consoleconnector)
 
-> Connects a UniversalBot to the command line via a console window.
+	> Connects a UniversalBot to the command line via a console window.
 
 * `src/server.ts` - Starting your bot with a [Chat Connector](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.chatconnector.html) (used for Bot Framework Emulator)
 
-> Connects a UniversalBot to multiple channels via the Bot Framework.
+	> Connects a UniversalBot to multiple channels via the Bot Framework.
 
 * `src/bot.ts` - The core of your bot logic
 * `src/Skills/` - The core of your bot Dialogs
