@@ -49,7 +49,7 @@ export class BotWrapper {
       if (message.membersAdded) {
         message.membersAdded.forEach(identity => {
           if (identity.id === message.address.bot.id) {
-            // this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
+            this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
           }
         });
       }
@@ -58,7 +58,7 @@ export class BotWrapper {
     //Initiate welcome dialog if added
     this.bot.on("contactRelationUpdate", message => {
       if (message.action === "add") {
-        // this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
+        this.bot.beginDialog(message.address, LoginSkill.Dialogs.Login);
       }
     });
   }
