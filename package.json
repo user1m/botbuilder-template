@@ -9,26 +9,25 @@
   ],
   "scripts": {
     "build": "gulp clean transpile && npm run pack",
-    "build-full": "gulp clean transpile && npm run localize && npm run pack",
     "build-start": "npm run build && npm run start",
     "check-security": "gulp check-security",
     "ci-test": "mocha-typescript-watch -p tsconfig.json ./release/test/",
     "clean": "gulp clean",
     "console": "./node_modules/.bin/nodemon ./release/console",
     "deploy": "npm cache clean",
-    "debug": "mocha --inspect-brk ./release/test/",
+    "debug-test": "mocha --inspect-brk ./release/test/",
     "enforce-code-cov": "gulp enforce-code-coverage",
     "gulp": "gulp",
     "lint": "gulp tslint",
-    "jasmine": "NODE_ENV=test ./node_modules/.bin/jasmine --config=jasmine.json",
+    "jasmine": "NODE_ENV=test node ./release/specs/runner",
     "pack": "webpack",
     "package": "gulp package-transpiled-javascript",
     "server": "./node_modules/.bin/nodemon ./release/server",
     "show-cov-ut": "gulp show-unittest-coverage-report",
     "start": "node ./bundle",
+    "show-npm-packages": "npm ls",
     "test": "npm run jasmine && gulp run-unit-tests check-security",
     "transpile": "gulp transpile",
-    "validate": "npm ls",
     "watch": "tsc -w -p tsconfig.json"
   },
   "author": {
@@ -36,13 +35,11 @@
     "name": "Claudius Mbemba",
     "email": "clmb@microsoft.com"
   },
-  "contributors": [
-    {
-      "url": "",
-      "name": "",
-      "email": ""
-    }
-  ],
+  "contributors": [{
+    "url": "",
+    "name": "",
+    "email": ""
+  }],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {

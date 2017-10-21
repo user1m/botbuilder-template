@@ -5,7 +5,6 @@ import { BotWrapper } from "../bot";
 describe('Simple test for a bot', () => {
     let bot = null;
     beforeEach(() => {
-        // jasmine.DEFAULT_TIMEOUT_INTERVAL = 999999;
         bot = new BotWrapper(new builder.ConsoleConnector().listen()).bot;
         // bot = new builder.UniversalBot(new builder.ConsoleConnector().listen());
         // bot.dialog('/', [
@@ -13,6 +12,7 @@ describe('Simple test for a bot', () => {
         //     (session, response) => session.endDialog(`Hello ${response.response}!`)
         // ]);
     });
+
     it('Test login flow', (done) => {
         const messages = require('./loginScript');
         unit(bot, messages).then(function () {
@@ -23,6 +23,7 @@ describe('Simple test for a bot', () => {
             console.log(error);
         });
     });
+
     it('Test sample flow', (done) => {
         const messages = require('./sampleScript');
         unit(bot, messages).then(function () {
