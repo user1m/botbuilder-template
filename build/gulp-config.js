@@ -11,6 +11,7 @@ module.exports = {
     packageJSON: path.resolve('package.json'),
     root: srcRoot,
     output: outputRoot,
+    bundle: path.resolve("bundle.js"),
     allJavascript: [
         outputRoot + '/**/*.js',
         '!node_modules/**'
