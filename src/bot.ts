@@ -2,7 +2,7 @@ import builder = require("botbuilder");
 
 import { RootSkill } from "./Skills/Root/Root.Skill";
 import { LoginSkill } from "./Skills/Login/Login.Skill";
-import { SampleSkill } from "./Skills/Sample/Sample.Skill";
+import { StartSkill } from "./Skills/Start/Start.Skill";
 
 import config = require("./config");
 
@@ -25,15 +25,12 @@ export class BotWrapper {
         : `Bot started with App Id ${process.env.MICROSOFT_APP_ID}`
     );
 
-    console.log("Registering dialogs...");
-    this.registerDialogs();
-
-    // if (this.bot instanceof builder.ChatConnector) {
+    this.registerSkills();
     this.init();
-    // }
   }
 
   private setUp() {
+    console.log("Setting up...");
     const url = config.luis.url
       .replace("##APP##", config.luis.app)
       .replace("##KEY##", config.luis.key);
@@ -63,9 +60,10 @@ export class BotWrapper {
     });
   }
 
-  private registerDialogs() {
-    RootSkill.register(this);
-    SampleSkill.register(this); // Add a line like this for every dialog
-    LoginSkill.register(this); // Add a line like this for every dialog
+  private registerSkills() {
+    console.log("Registering skills...");
+    RootSkill.register(this); // Add a line like this for every skill
+    StartSkill.register(this);
+    LoginSkill.register(this);
   }
 }

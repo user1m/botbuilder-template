@@ -8,8 +8,8 @@ import { LoginService } from './Login.Service';
 export class LoginSkill {
 
     static Dialogs = {
-        Login: '/Login',
-        Authenticate: '/Authenticate'
+        Login: '/login',
+        Authenticate: '/authenticate'
     };
     static register = function (wrapper: BotWrapper) {
         // A Skill is a mapping of Intents to Dialogs

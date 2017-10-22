@@ -26,8 +26,8 @@ describe('Simple test for a bot', () => {
         });
     });
 
-    it('Test sample flow', (done) => {
-        const messages = require('./sampleScript');
+    it('Test start flow', (done) => {
+        const messages = require('./startScript');
         unit(bot, messages).then(function () {
             done();
         }).catch((error) => {

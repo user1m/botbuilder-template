@@ -5,7 +5,7 @@ import { BotWrapper } from "../../bot";
 import { LoginService } from './Login.Service';
 import { LoginSkill } from './Login.Skill';
 import { LoginMessage } from './Login.Message';
-import { SampleMessage } from '../Sample/Sample.Message';
+import { StartMessage } from '../Start/Start.Message';
 
 export class LoginDialog {
 
@@ -15,7 +15,7 @@ export class LoginDialog {
                 if (!session.privateConversationData.name) {
                     // call custom prompt
                     session.beginDialog(LoginSkill.Dialogs.Authenticate, {
-                        prompt: SampleMessage.promptForName(session),
+                        prompt: StartMessage.promptForName(session),
                         retryPrompt: LoginMessage.announceNameIsInvalid()
                     });
                 } else {
@@ -28,7 +28,7 @@ export class LoginDialog {
                     // console.log('got valid name: ', results.response)
                     const name = results.response;
                     LoginService.saveName(session, name);
-                    session.send(SampleMessage.welcomeByName(name));
+                    session.send(StartMessage.welcomeByName(name));
                 } else {
                     // session.send(LoginMessage.announceNameIsInvalid());
                 }

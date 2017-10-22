@@ -4,7 +4,7 @@ import { BotWrapper } from "../../bot";
 
 import { RootSkill } from "../Root/Root.Skill";
 import { LoginSkill } from "../Login/Login.Skill";
-import { SampleSkill } from "../Sample/Sample.Skill";
+import { StartSkill } from "../Start/Start.Skill";
 
 import { RootMessage } from './Root.Message';
 
@@ -16,8 +16,8 @@ export class RootDialog {
                 builder.Prompts.text(session, RootMessage.respondInfo());
             },
             (session, result) => {
-                if (SampleSkill.Dialogs.Start.toLowerCase().includes(result.response)) {
-                    session.replaceDialog(SampleSkill.Dialogs.Start);
+                if (StartSkill.Dialogs.Start.toLowerCase().includes(result.response)) {
+                    session.replaceDialog(StartSkill.Dialogs.Start);
                 } else if (LoginSkill.Dialogs.Login.toLowerCase().includes(result.response)) {
                     session.replaceDialog(LoginSkill.Dialogs.Login);
                 }

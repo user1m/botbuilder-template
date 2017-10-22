@@ -109,7 +109,7 @@ and update the `src/specs/botSpec.ts` to use your conversation scripts:
 **botSpec.ts**
 
 ```js
-it('Test sample flow', (done) => {
+it('Test start flow', (done) => {
         const messages = require('./hiScript');
         unit(bot, messages).then(function () {
             done();
@@ -136,6 +136,50 @@ On a high level:
 
 As a debugging benefit (if you're using VSCode - highly suggested), there are `Mocha Tests` and `Run mocha` run configurations that allow you to step through your tests.
 
+
+## Workflow
+
+1. Clone [botbuilder-template](https://github.com/user1m/botbuilder-template)
+
+2. Copy `Start ` to `<NewSkill>`
+
+3. Rename occurrences of the name `"Start"` to `<NewSkill>` in copied folder
+
+4. Remove `Login, Start ` skill imports from `bot.ts`
+
+5. Register `<NewSkill>` dialogs in `bot.ts`
+
+6. Change occurrences of `Start` with `<NewSkill>` in `bot.ts`
+
+7. Add your custom dialogs to `<NewSkill>.Dialogs.ts`
+
+	> **NOTE:**
+	
+	> When you find yourself adding hard-coded bot response strings - move them to `NewSkill.Messages.ts`
+
+	> Cards & Attachments should be put in to `NewSkill.Messages.ts`
+
+	> Remember to break dialogs up to mini-modules - allows you to easily replace and swap out dialogs
+	
+	> Api calls should live in a service
+
+	> When you want to add a BF component but don't know how... do a quick google search (i.e "Bot Framework Cards") - there are tons of sample code online
+
+13. Configure `Root/Root.Dialog.ts` to lead into your starting dialog
+
+12. Remove `Login, Start` from `Root/Root.Dialog.ts`
+
+18. Delete `Login & Start` Skills folders
+
+14. `npm run clean`
+ 
+15. `npm run build`
+
+16. `npm run watch` - runs a typescript watcher to compile your code in the background
+ 
+17. `npm run server` - runs the non-webpacked emulator code so that you can edit your `.ts` files and see changes realtime
+
+16. `npm run test` - test your bot code
 
 ## Deploy to Azure
 
