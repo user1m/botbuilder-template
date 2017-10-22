@@ -4,14 +4,14 @@ var path = require('path');
 var srcRoot = './src';
 var outputRoot = './release';
 var testRoot = './release/test';
-var typescriptDefinitions = './node_modules/@types/*/index.d.ts';
+var typescriptDefinitions = './node_modules/@types/**/index.d.ts';
 var tsconfig = './tsconfig.json';
 
 module.exports = {
     packageJSON: path.resolve('package.json'),
     root: srcRoot,
     output: outputRoot,
-    bundle: path.resolve("bundle.js"),
+    bundle: path.resolve('bundle.js'),
     allJavascript: [
         outputRoot + '/**/*.js',
         '!node_modules/**'
