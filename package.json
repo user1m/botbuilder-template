@@ -19,7 +19,7 @@
     "enforce-code-cov": "gulp enforce-code-coverage",
     "gulp": "gulp",
     "lint": "gulp tslint",
-    "jasmine": "NODE_ENV=test node ./release/specs/runner",
+    "jasmine": "node ./release/specs/runner",
     "pack": "webpack",
     "package": "gulp package-transpiled-javascript",
     "server": "./node_modules/.bin/nodemon ./release/server",
