@@ -14,14 +14,14 @@ suite('Bot Suite -', () => {
     let sandbox: Sinon.SinonSandbox;
 
     const univseralBot = {
-        dialog: () => { return null; }, // tslint:disable-line
-        recognizer: () => { return null; }, // tslint:disable-line
-        on: () => { } // tslint:disable-line
+        dialog: () => { return univseralBot; }, // tslint:disable-line
+        recognizer: () => { return univseralBot; }, // tslint:disable-line
+        on: () => { return univseralBot; } // tslint:disable-line
     };
     const dialog = {
-        onDefault: () => { return null; }, // tslint:disable-line
-        matches: () => { return null; }, // tslint:disable-line
-        triggerAction: () => { },// tslint:disable-line
+        onDefault: () => { return dialog; }, // tslint:disable-line
+        matches: () => { return dialog; }, // tslint:disable-line
+        triggerAction: () => { return dialog; },// tslint:disable-line
     };
     let connector: builder.IConnector = null; // tslint:disable-line
     let recognizer: builder.LuisRecognizer = null; // tslint:disable-line
