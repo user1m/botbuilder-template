@@ -11,7 +11,7 @@
             "cwd": "${workspaceFolder}",
             "outFiles": ["${workspaceRoot}/release/**"],
             "sourceMaps": true
-            //note: run `npm run watch` when you launch debugger
+            //note: run `npm run watch` while you launch debugger
         },
         {
             "type": "node",
