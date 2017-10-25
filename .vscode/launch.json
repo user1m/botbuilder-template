@@ -7,7 +7,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program - app",
-            "program": "${workspaceRoot}/release/server"
+            "program": "${workspaceRoot}/release/server",
+            "sourceMaps": true
         },
         {
             "type": "node",

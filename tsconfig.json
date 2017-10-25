@@ -20,7 +20,6 @@
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
     "outDir": "./release",
     /* Redirect output structure to the directory. */
-    "outFiles": ["${workspaceRoot}/release/**/*.js"],
     "rootDir": "./src",
     /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     "removeComments": true,
@@ -65,7 +64,8 @@
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     /* Source Map Options */
     // "sourceRoot": "./",                    /* Specify the location where debugger should locate TypeScript files instead of source locations. */
-    // "mapRoot": "./",                       /* Specify the location where debugger should locate map files instead of generated locations. */
+    "mapRoot": "{workspaceRoot}/release/**/*.js.map",
+    /* Specify the location where debugger should locate map files instead of generated locations. */
     // "inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
     // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
     /* Experimental Options */
