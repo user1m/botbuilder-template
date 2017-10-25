@@ -1,9 +1,13 @@
 import * as unit from 'botbuilder-unit';
 import * as builder from 'botbuilder';
-import { BotWrapper } from "../bot";
+import { BotWrapper } from "../../bot";
 
 describe('Simple test for a bot', () => {
     let bot = null;
+    let ops = {
+        DEFAULT_TEST_TIMEOUT: 20000,
+        LOG_LEVEL: 1
+    };
     beforeEach(() => {
         bot = new BotWrapper(new builder.ConsoleConnector().listen()).bot;
         bot.set(`persistUserData`, false);
@@ -18,7 +22,7 @@ describe('Simple test for a bot', () => {
 
     it('Test login flow', (done) => {
         const messages = require('./loginScript');
-        unit(bot, messages).then(function () {
+        unit(bot, messages, ops).then(function () {
             done();
         }).catch((error) => {
             console.log("------------ ERROR ------------ ");
@@ -28,7 +32,7 @@ describe('Simple test for a bot', () => {
 
     it('Test start flow', (done) => {
         const messages = require('./startScript');
-        unit(bot, messages).then(function () {
+        unit(bot, messages, ops).then(function () {
             done();
         }).catch((error) => {
             console.log("------------ ERROR ------------ ");

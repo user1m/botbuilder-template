@@ -1,11 +1,11 @@
+import { ResourceStrings } from '../../helpers/ResourceStrings';
+
 export =[
     {
         "user": "Hi"
     },
     {
-        "bot": `You can say:
-        <br>"login" - to start a login dialog
-        <br>"start" - to start a basic dialog`
+        "bot": ResourceStrings.GetString("HELP")
     },
     {
         "user": "Login"

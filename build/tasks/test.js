@@ -11,11 +11,13 @@ var istanbulConfig = require('./../istanbul-config');
 var mochaConfig = require('./../mocha-config');
 
 gulp.task('check-security', function (cb) {
-    nsp({ package: gulpConfig.packageJSON }, cb);
+    nsp({
+        package: gulpConfig.packageJSON
+    }, cb);
 });
 
 gulp.task('pre-unit-tests', function () {
-    return gulp.src(gulpConfig.allTranspiledJavascript)
+    return gulp.src(gulpConfig.allJavascriptToTest)
         .pipe(istanbul({
             includeUntested: istanbulConfig.includeUntested,
         }))
@@ -56,8 +58,7 @@ gulp.task('enforce-code-coverage', ['run-unit-tests'], function () {
                     functions: istanbulConfig.unitTestLocal.functionCoverageThreshold
                 }
             }
-        }
-        ));
+        }));
 });
 
 gulp.task('show-unittest-coverage-report', ['run-unit-tests'], function () {

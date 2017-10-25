@@ -19,7 +19,7 @@
     "enforce-code-cov": "gulp enforce-code-coverage",
     "gulp": "gulp",
     "lint": "gulp tslint",
-    "jasmine": "node ./release/specs/runner",
+    "jasmine": "node ./release/tests/specs/runner",
     "pack": "webpack",
     "package": "gulp package-transpiled-javascript",
     "server": "./node_modules/.bin/nodemon --delay 200ms ./release/server",
@@ -35,11 +35,13 @@
     "name": "Claudius Mbemba",
     "email": "clmb@microsoft.com"
   },
-  "contributors": [{
-    "url": "",
-    "name": "",
-    "email": ""
-  }],
+  "contributors": [
+    {
+      "url": "",
+      "name": "",
+      "email": ""
+    }
+  ],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
@@ -52,7 +54,7 @@
     "@types/sinon": "^1.16.33",
     "botbuilder": "^3.8.4",
     "botbuilder-forms": "^1.0.2",
-    "botbuilder-unit": "^0.3.0",
+    "botbuilder-unit": "git+https://github.com/User1m/botbuilder-unit.git",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "dotenv": "^4.0.0",
@@ -72,10 +74,12 @@
     "jasmine": "^2.8.0",
     "jasmine-console-reporter": "^2.0.1",
     "jshint": "^2.9.4",
+    "localize": "^0.4.7",
     "lodash": "^4.17.4",
     "mocha": "^3.2.0",
     "mocha-multi": "^0.9.1",
     "mocha-typescript": "^1.0.23",
+    "ncp": "^2.0.0",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "precommit-hook": "^3.0.0",

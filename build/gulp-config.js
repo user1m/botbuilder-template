@@ -3,7 +3,7 @@
 var path = require('path');
 var srcRoot = './src';
 var outputRoot = './release';
-var testRoot = './release/test';
+var testRoot = './release/tests/';
 var typescriptDefinitions = './node_modules/@types/**/index.d.ts';
 var tsconfig = path.resolve('tsconfig.json');
 
@@ -26,9 +26,14 @@ module.exports = {
         outputRoot + '/**/*.js.map'
     ],
     allTranspiledJavascript: [
+        `!${outputRoot}/bundle.js`, //ignore bundle.js
+        `!${testRoot}/specs/**`, //ignore specs files
+        `!${outputRoot}/helpers/**`, //ignore helpers files
         outputRoot + '/**/*.js',
         testRoot + '/**/*.js',
-        `!${outputRoot}/bundle.js`
+    ],
+    allJavascriptToTest: [
+        outputRoot + '/Skills/**/*.js',
     ],
     javascriptUnitTests: [
         testRoot + '/unit/**/*.js'

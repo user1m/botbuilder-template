@@ -4,7 +4,7 @@ import { RootSkill } from "./Skills/Root/Root.Skill";
 import { LoginSkill } from "./Skills/Login/Login.Skill";
 import { StartSkill } from "./Skills/Start/Start.Skill";
 
-import config = require("./config");
+import config = require("./helpers/config");
 
 export class BotWrapper {
   /**
