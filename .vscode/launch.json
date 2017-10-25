@@ -7,8 +7,11 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program - app",
-            "program": "${workspaceRoot}/release/server",
+            "program": "${workspaceRoot}/src/server.ts",
+            "cwd": "${workspaceFolder}",
+            "outFiles": ["${workspaceRoot}/release/**"],
             "sourceMaps": true
+            //note: run `npm run watch` when you launch debugger
         },
         {
             "type": "node",

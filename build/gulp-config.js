@@ -5,7 +5,8 @@ var srcRoot = './src';
 var outputRoot = './release';
 var testRoot = './release/test';
 var typescriptDefinitions = './node_modules/@types/**/index.d.ts';
-var tsconfig = './tsconfig.json';
+var tsconfig = path.resolve('tsconfig.json');
+// var tsconfig = './tsconfig.json';
 
 module.exports = {
     packageJSON: path.resolve('package.json'),
