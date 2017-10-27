@@ -4,7 +4,7 @@ import { BotWrapper } from "../../bot";
 
 describe('Simple test for a bot', () => {
     let bot = null;
-    let ops = {
+    const ops = {
         DEFAULT_TEST_TIMEOUT: 20000,
         LOG_LEVEL: 1
     };

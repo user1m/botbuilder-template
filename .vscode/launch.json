@@ -8,7 +8,7 @@
             "request": "launch",
             "name": "Launch Program - app",
             "program": "${workspaceRoot}/src/server.ts",
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceRoot}",
             "outFiles": ["${workspaceRoot}/release/**"],
             "sourceMaps": true
             //note: run `npm run watch` while you launch debugger
