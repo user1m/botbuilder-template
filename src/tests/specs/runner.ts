@@ -1,8 +1,9 @@
 process.on('uncaughtException', function (exception: Error) {
-    console.log(exception);
+    console.log(`Uncaught Exception: ${exception}`);
 });
+
 process.on('unhandledRejection', (reason, p) => {
-    console.log("Unhandled Rejection at: Promise ", p, " reason: ", reason);
+    console.log(`Unhandled Rejection at: Promise ${p}\n reason: ${reason}`);
 });
 
 import * as Jasmine from 'jasmine';
@@ -16,8 +17,8 @@ jasmine.configureDefaultReporter({
 import * as JasmineConsoleReporter from 'jasmine-console-reporter';
 const reporter = new JasmineConsoleReporter({
     colors: 1,           // (0|false)|(1|true)|2
-    cleanStack: 1,       // (0|false)|(1|true)|2|3
-    verbosity: 4,        // (0|false)|1|2|(3|true)|4
+    cleanStack: 4,       // (0|false)|(1|true)|2|3
+    verbosity: 1,        // (0|false)|1|2|(3|true)|4
     listStyle: 'indent', // "flat"|"indent"
     activity: false
 });

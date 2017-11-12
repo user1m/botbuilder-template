@@ -1,4 +1,4 @@
-import * as unit from 'botbuilder-unit';
+import { runTest } from 'botbuilder-unit';
 import * as builder from 'botbuilder';
 import { BotWrapper } from "../../bot";
 
@@ -22,21 +22,15 @@ describe('Simple test for a bot', () => {
 
     it('Test login flow', (done) => {
         const messages = require('./loginScript');
-        unit(bot, messages, ops).then(function () {
+        runTest(bot, messages, ops).then(function () {
             done();
-        }).catch((error) => {
-            console.log("------------ ERROR ------------ ");
-            console.log(error);
         });
     });
 
     it('Test start flow', (done) => {
         const messages = require('./startScript');
-        unit(bot, messages, ops).then(function () {
+        runTest(bot, messages, ops).then(function () {
             done();
-        }).catch((error) => {
-            console.log("------------ ERROR ------------ ");
-            console.log(error);
         });
     });
 });

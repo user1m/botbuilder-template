@@ -73,6 +73,7 @@
     "istanbul": "^0.4.5",
     "jasmine": "^2.8.0",
     "jasmine-console-reporter": "^2.0.1",
+    "jasmine-terminal-reporter": "^1.0.3",
     "jshint": "^2.9.4",
     "localize": "^0.4.7",
     "lodash": "^4.17.4",
