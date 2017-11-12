@@ -19,11 +19,8 @@ export class BotWrapper {
     this.bot = new builder.UniversalBot(connector);
     this.setUp();
 
-    console.log(
-      !process.env.MICROSOFT_APP_ID
-        ? "WARNING: Starting bot without ID or Secret"
-        : `Bot started with App Id ${process.env.MICROSOFT_APP_ID}`
-    );
+    const app_id = config.microsoft.app_id;
+    console.log(!app_id ? "WARNING: Starting bot without ID or Secret" : `Bot started with App Id ${app_id}`);
 
     this.registerSkills();
     this.init();
@@ -31,16 +28,14 @@ export class BotWrapper {
 
   private setUp() {
     console.log("Setting up...");
-    const url = config.luis.url
-      .replace("##APP##", config.luis.app)
-      .replace("##KEY##", config.luis.key);
+    const url = config.luis.url.replace("##APP##", config.luis.app).replace("##KEY##", config.luis.key);
+    console.log("LUIS URL:", url);
     this.recognizer = new builder.LuisRecognizer(url);
     this.bot.recognizer(this.recognizer);
   }
 
   private init() {
     console.log("Initializing...");
-    // this.dialog.onDefault(builder.DialogAction.send(config.dialogs.speech.iDontUnderstand));
     //Initiate welcome message
     this.bot.on("conversationUpdate", message => {
       if (message.membersAdded) {
