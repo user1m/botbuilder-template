@@ -67,12 +67,9 @@
             "name": "Run Jasmine",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/node_modules/.bin/jasmine",
+            "program": "${workspaceRoot}/src/tests/specs/runner.ts",
             "stopOnEntry": false,
-            "args": [
-                "--config=${workspaceRoot}/jasmine.json",
-                "${workspaceRoot}/release/specs/**/*.js"
-            ],
+            "outFiles": ["${workspaceRoot}/release/tests/specs/**"],
             "cwd": "${workspaceRoot}",
             "sourceMaps": true,
             "runtimeExecutable": null,

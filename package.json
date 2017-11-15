@@ -4,7 +4,6 @@
   "description": "botbuilder-template",
   "main": "./bundle",
   "pre-commit": [
-    "test",
     "lint"
   ],
   "scripts": {
@@ -28,20 +27,19 @@
     "show-npm-packages": "npm ls",
     "test": "npm run jasmine && gulp run-unit-tests check-security",
     "transpile": "gulp transpile",
-    "watch": "tsc -w -p tsconfig.json"
+    "watch": "tsc -w -p tsconfig.json",
+    "validate": "npm ls"
   },
   "author": {
     "url": "https://www.claudiusmbemba.com",
     "name": "Claudius Mbemba",
     "email": "clmb@microsoft.com"
   },
-  "contributors": [
-    {
-      "url": "",
-      "name": "",
-      "email": ""
-    }
-  ],
+  "contributors": [{
+    "url": "",
+    "name": "",
+    "email": ""
+  }],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
