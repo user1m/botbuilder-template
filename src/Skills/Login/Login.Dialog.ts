@@ -11,7 +11,7 @@ export class LoginDialog {
 
     static register = function (wrapper: BotWrapper) {
         wrapper.bot.dialog(LoginSkill.Dialogs.Login, [
-            function (session: builder.Session) {
+            function (session: builder.Session, args: any) {
                 if (!session.privateConversationData.name) {
                     // call custom prompt
                     session.beginDialog(LoginSkill.Dialogs.Authenticate, {

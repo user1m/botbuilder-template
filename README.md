@@ -2,6 +2,9 @@
 
 Sample template for building bots using Microsoft Bot Framework
 
+### ***If you like this project, give it a [![GitHub stars](https://img.shields.io/github/stars/user1m/botbuilder-template.svg?style=social&label=Star)](https://github.com/user1m/botbuilder-template).  If you find issues, [create an issue](https://github.com/user1m/botbuilder-template/issues).***
+
+
 ## Concepts
 * A Skill is a mapping of Intents to Dialogs
 
